@@ -23,7 +23,6 @@ function* firstMovie(action) {
     try
     {const movieResponse = yield axios.get('/api/movies');
     yield put({ type: 'SET_MOVIES', payload: movieResponse.data });
-     console.log('firstMovie was hit with action:', action);
     } catch(error){
         console.log('error fetching movies', error);
     }
