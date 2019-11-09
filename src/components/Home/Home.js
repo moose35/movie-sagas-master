@@ -14,17 +14,18 @@ class Home extends Component {
         // Renders the entire app on the DOM
         return (
             <div className="App">
-                <p>Home Page</p>
-                <br /><ul>
+                <ul>
                     {this.props.reduxState.movies.map((movie) => {
                         return (
-                            <li key={movie.id}>
-                                <span>{movie.title}, {movie.poster} </span>
-                            </li>
+                            <div key={movie.id}>
+                                <span> <img src={movie.poster} />
+                                    <br />{movie.title}
+                                    <br />{movie.description} </span>
+                            </div>
                         );
                     })}
                 </ul>
-      </div>
+            </div>
         );
     }
 }
