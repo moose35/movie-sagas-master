@@ -17,6 +17,8 @@ class Edit extends Component {
                 <br /><input placeholder="Movie Title" />
                 <br /><input type="text" />
                 <p>Edit Page</p>
+                put route
+                <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
             </div>
         );
     }

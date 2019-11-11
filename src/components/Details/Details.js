@@ -19,10 +19,17 @@ class Details extends Component {
         this.props.history.push('/');
     }
 
+    editMovie = (event) =>{
+        // sends user to Edit component when clicked
+        event.preventDefault();
+        console.log('Edit clicked');
+        this.props.history.push('/edit');
+    }
+
   render() {
     return (
       <div className="App">
-          <button onClick={this.goBack}>Back to List</button> <button>Edit</button>
+          <button onClick={this.goBack}>Back to List</button> <button onClick={this.editMovie}>Edit</button>
         
         <h2>{this.props.reduxState.details.title}</h2>
         <br />{this.props.reduxState.details.description}
