@@ -15,6 +15,7 @@ class Home extends Component {
     moveMovie = (movieClicked) => {
       //clicked movie image moves user to details
         console.log('Movie title clicked:', movieClicked.id);
+        this.props.dispatch({ type: 'GET_DETAILS', payload: movieClicked})
         this.props.history.push('/details');
     }
     render() {

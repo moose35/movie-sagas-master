@@ -13,5 +13,16 @@ router.get('/', (req, res) => {
     });
 })
 
+router.get('/details/:id', (req, res) => {
+    // gets all available movie data from database
+    console.log('GET /api/movies/details');
+    pool.query('SELECT * from "movies" WHERE id=$1;', [req.params.id]).then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log('Error GET /api/movies/details', error)
+        res.sendStatus(500);
+    });
+})
+
 
 module.exports = router;

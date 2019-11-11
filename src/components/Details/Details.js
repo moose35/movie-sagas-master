@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 
 class Details extends Component {
+
+    componentDidMount(){
+        
+    }
   // Renders the entire app on the DOM
     goBack = (event) =>{
         // sends user to Home component when clicked
