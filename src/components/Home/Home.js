@@ -22,7 +22,7 @@ class Home extends Component {
         // Renders the entire app on the DOM
         return (
             <div className="App">
-                {JSON.stringify(this.state, null, 2)}
+                
                 <ul>
                     {this.props.reduxState.movies.map((movie) => {
                         return (

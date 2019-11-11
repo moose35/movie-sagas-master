@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 
 class Details extends Component {
 
-    componentDidMount(){
-        
-    }
+    // componentDidMount(){
+    //     this.getDetails();
+    // }
+    
+    // getDetails = () => {
+    //     this.props.dispatch({ type: 'GET_DETAILS' });
+    // }
+
   // Renders the entire app on the DOM
     goBack = (event) =>{
         // sends user to Home component when clicked
@@ -19,11 +24,19 @@ class Details extends Component {
       <div className="App">
           <button onClick={this.goBack}>Back to List</button> <button>Edit</button>
         <p>Details Page</p>
-        <br /> Displays movies selected from Home
-        <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
+        
+        <h2>{this.props.reduxState.details.title}</h2>
+        <br />{this.props.reduxState.details.description}
+                    
+        
+        
+        <br />
+        <pre>{JSON.stringify(this.props.reduxState.details, null, 2)}</pre>
       </div>
     );
   }
 }
-
-export default Details;
+const mapStateToProps = reduxState => ({
+    reduxState,
+});
+export default connect(mapStateToProps)(Details);
