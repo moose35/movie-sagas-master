@@ -14,13 +14,11 @@ router.get('/', (req, res) => {
 })
 
 router.get('/genres/:id', (req, res) => {
-    // gets all available movie data from movie table database
+    // gets all available genre data from movie table database
     console.log('GET /api/movies/details');
-    pool.query(`SELECT * from "genres" 
-    JOIN "movie_genre"
-    ON "movie_genre"."genre_id"="genres"."id"
-    WHERE "movie_id"=$1
-     ;`, [req.params.id]).then((result) => {
+    pool.query(`SELECT * FROM "genres" 
+    JOIN "movie_genre" ON "movie_genre"."genre_id"="genres"."id"
+    WHERE "movie_id"=$1;`, [req.params.id]).then((result) => {
         res.send(result.rows);
     }).catch((error) => {
         console.log('Error GET /api/movies/genres', error)

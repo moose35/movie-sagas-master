@@ -23,15 +23,23 @@ class Details extends Component {
     return (
       <div className="App">
           <button onClick={this.goBack}>Back to List</button> <button>Edit</button>
-        <p>Details Page</p>
         
         <h2>{this.props.reduxState.details.title}</h2>
         <br />{this.props.reduxState.details.description}
-                    
+        <h2>Genre</h2>
+        <p>{this.props.reduxState.genres.map((genre) => {
+                        return (
+                            <div key={genre.id}>
+                                {genre.name}
+                            </div>
+                        );
+                    })}
         
+                    
+        </p>
         
         <br />
-        <pre>{JSON.stringify(this.props.reduxState.details, null, 2)}</pre>
+        <pre>{JSON.stringify(this.props.reduxState.genres, null, 2)}</pre>
       </div>
     );
   }
