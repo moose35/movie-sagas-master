@@ -16,6 +16,7 @@ class Details extends Component {
           <button onClick={this.goBack}>Back to List</button> <button>Edit</button>
         <p>Details Page</p>
         <br /> Displays movies selected from Home
+        <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
       </div>
     );
   }
